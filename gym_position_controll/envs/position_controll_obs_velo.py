@@ -10,8 +10,11 @@ class PositionControllObsVeloEnv(PositionControllEnv):
   def __init__(self):
     PositionControllEnv.__init__(self)
 
-    self.high = np.array([0,  self.max_speed])
-    self.low  = np.array([0, -self.max_speed])
+    # self.high = np.array([0,  self.max_speed])
+    # self.low  = np.array([0, -self.max_speed])
+
+    self.high = np.array([ self.max_position,  self.max_speed])
+    self.low  = np.array([-self.max_position, -self.max_speed])
     
     self.observation_space = spaces.Box(self.low, self.high)
 
